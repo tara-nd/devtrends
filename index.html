@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Technology Trends (2020 - 2024)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 0.05rem;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+        }
+
+        canvas {
+            margin: 20px auto;
+            max-width: 90%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #343a40;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Developer Technology Trends (2020 - 2024)</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Web Technologies</h2>
+            <canvas id="webTechChart"></canvas>
+        </section>
+
+        <section>
+            <h2>Database Usage</h2>
+            <canvas id="databaseChart"></canvas>
+        </section>
+
+        <section>
+            <h2>AI Technologies</h2>
+            <canvas id="aiTechChart"></canvas>
+        </section>
+    </main>
+    <footer>
+        © 2024 Developer Trends Visualization by <a href="https://stackoverflow.com" target="_blank">Stack Overflow</a>
+    </footer>
+    <script>
+        // Web Technologies Chart
+        const webTechData = {
+            labels: ['2020', '2021', '2022', '2023', '2024'],
+            datasets: [
+                {
+                    label: 'JavaScript Usage (%)',
+                    data: [67, 69, 71, 72, 74],
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    tension: 0.4,
+                    fill: true,
+                },
+                {
+                    label: 'React.js Usage (%)',
+                    data: [35, 39, 42, 45, 48],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                    tension: 0.4,
+                    fill: true,
+                },
+                {
+                    label: 'Svelte Usage (%)',
+                    data: [5, 8, 12, 16, 20],
+                    borderColor: '#fd7e14',
+                    backgroundColor: 'rgba(253, 126, 20, 0.2)',
+                    tension: 0.4,
+                    fill: true,
+                },
+            ]
+        };
+
+        new Chart(document.getElementById('webTechChart'), {
+            type: 'line',
+            data: webTechData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                },
+                scales: {
+                    y: { beginAtZero: true },
+                },
+            },
+        });
+
+        // Database Usage Chart
+        const databaseData = {
+            labels: ['2020', '2021', '2022', '2023', '2024'],
+            datasets: [
+                {
+                    label: 'PostgreSQL (%)',
+                    data: [36, 39, 42, 45, 49],
+                    backgroundColor: '#007bff',
+                },
+                {
+                    label: 'MySQL (%)',
+                    data: [50, 48, 46, 44, 42],
+                    backgroundColor: '#dc3545',
+                },
+                {
+                    label: 'MongoDB (%)',
+                    data: [26, 28, 30, 32, 34],
+                    backgroundColor: '#28a745',
+                },
+            ],
+        };
+
+        new Chart(document.getElementById('databaseChart'), {
+            type: 'bar',
+            data: databaseData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { beginAtZero: true },
+                },
+            },
+        });
+
+        // AI Technologies Chart
+        const aiTechData = {
+            labels: ['2020', '2021', '2022', '2023', '2024'],
+            datasets: [
+                {
+                    label: 'AI Adoption (%)',
+                    data: [15, 20, 30, 40, 50],
+                    backgroundColor: '#6610f2',
+                },
+                {
+                    label: 'Developers using AI tools (%)',
+                    data: [5, 10, 20, 35, 50],
+                    backgroundColor: '#fd7e14',
+                },
+            ],
+        };
+
+        new Chart(document.getElementById('aiTechChart'), {
+            type: 'bar',
+            data: aiTechData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { beginAtZero: true },
+                },
+            },
+        });
+    </script>
+</body>
+</html>
